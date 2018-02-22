@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import { Field } from '../Field';
+import { RaceButtons } from '../RaceButtons';
 
 interface Props {
 	samplePropProp?: string;
@@ -17,6 +18,14 @@ export class App extends React.Component<Props, State> {
 		this.state = {
 			startGame: false
 		};
+		this.startRaceHandler = this.startRaceHandler.bind(this);
+		this.resetRaceHandler = this.resetRaceHandler.bind(this);
+	}
+	startRaceHandler() {
+		this.setState({ startGame: true });
+	}
+	resetRaceHandler() {
+		this.setState({ startGame: false });
 	}
 	render() {
 		return (
@@ -27,7 +36,10 @@ export class App extends React.Component<Props, State> {
 				</header>
 				<div className="Race-field">
 					<Field startGame={this.state.startGame} />
-				</div>			
+				</div>
+				<div className="Button-div">
+					<RaceButtons startRace={this.startRaceHandler} resetRace={this.resetRaceHandler} />
+				</div>
 			</div>
 		);
 	}

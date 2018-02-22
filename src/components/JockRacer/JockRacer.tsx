@@ -1,5 +1,7 @@
 import * as React from 'react';
 import './JockRacer.css';
+import { LinearProgress } from 'material-ui/Progress';
+
 // import ProgressBar from 'react-progressbar';
 
 interface Props {
@@ -22,19 +24,18 @@ export class JockRacer extends React.Component<Props, State> {
             count: 0,
             name: this.props.login
         };
+        this.timer = this.timer.bind(this);
     }
 
-    timer = () => {
-        this.setState({ progress: this.state.progress + 1 });
-        (this.state.progress >= 99) ? this.setState({ progress: 100 }) : this.setState({progress: 0});
+    timer() {
+        
+        (this.state.progress >= 99) ? this.setState({ progress: 100 }) : 
+            this.setState({ progress: this.state.progress + 0.9 });
         if (this.state.progress > 99 && this.state.count < 1) {
-            // noticed that this is applied to every JockRacer, 
-            // researching on having a callback function on parent component
             this.setState({ count: this.state.count + 1 });
             for (let i = 0; i < 1; i++) {
                 alert('The winner is :' + this.props.login);
             }
-            // alert("In place number :" + this.state.count + " - " + this.props.login);
         }
 
     }
@@ -49,7 +50,7 @@ export class JockRacer extends React.Component<Props, State> {
             <div className="Jocky">
                 <img className="img" src={this.props.avatar} alt="Horse jocky" />
                 <h3 className="h3">{this.props.login}</h3>
-                <progress value={this.state.progress} className="progressBar" color={this.props.color} />
+                <LinearProgress variant="determinate" value={this.state.progress}/>
             </div>
         );
     }

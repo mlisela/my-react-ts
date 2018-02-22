@@ -2,6 +2,7 @@ import * as React from 'react';
 import './Field.css';
 import { getRandomArrayIndex } from '../../Utils/FieldUtilities';
 import { JockRacer } from '../JockRacer';
+
 const teamJson = JSON.parse(JSON.stringify(require('../../team.json')));
 
 interface Props {
