@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './App.css';
+import { Field } from '../Field';
 
 interface Props {
 	samplePropProp?: string;
@@ -7,23 +8,26 @@ interface Props {
 
 interface State {
 	sampleStateProp?: string;
+	startGame: boolean;
 }
 
 export class App extends React.Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
+		this.state = {
+			startGame: false
+		};
 	}
 	render() {
 		return (
 			<div className="App" >
 				<header className="App-header" >
 					<img src={require('../../images/logo.svg')} className="App-logo" alt="logo" />
-					<h1 className="App-title" > Welcome to React with Typescript </h1>
-					<h2 className="App-sub-title" > Kurtosys Grads </h2>
+					<h1 className="App-title" >Welcome to React Horse Race Application </h1>
 				</header>
-				<p className="App-intro" >
-					To get started, edit <code> src / components / App / App.tsx </code> and save to reload.
-				</p>
+				<div className="Race-field">
+					<Field startGame={this.state.startGame} />
+				</div>			
 			</div>
 		);
 	}

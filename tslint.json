@@ -18,10 +18,6 @@
 		"curly": true,
 		"eofline": false,
 		"forin": true,
-		"indent": [
-			true,
-			"tabs"
-		],
 		"interface-name": [
 			true,
 			"never-prefix"
