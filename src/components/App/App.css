@@ -4,8 +4,8 @@ h1, h2 {
 
 .App {
   text-align: center;
-  height: 400px;
-  width: auto;
+  height: 50%;
+  width: 100%;
 }
 
 .App-logo {

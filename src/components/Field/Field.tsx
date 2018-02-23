@@ -74,7 +74,7 @@ export class Field extends React.Component<Props, State> {
     render() {
         if (this.props.startGame) {
             return (
-                <div>
+                <div className="field">
                     {
                         data.map((racer: Racer, key: number) => {
                             return (
