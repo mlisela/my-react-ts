@@ -25,18 +25,23 @@ let data: Array<object> = [];
 // teamJson = JSON.parse(JSON.stringify(require("../../team.json")));
 
 export class Field extends React.Component<Props, State> {
-    
+
     // data = teamJson.slice(0, 5).map((person: Racer) => {
     //     return (
     //         avatar_url: person.avatar_url;
     //     );
     // });
-
     constructor(props: Props) {
         super(props);
-        this.state = {
-            randomArrayIndex: getRandomArrayIndex(indexArray)
-        };
+        if (this.props.startGame) {
+            this.state = {
+                randomArrayIndex: getRandomArrayIndex(indexArray)
+            };
+        } else {
+            this.state = {
+                randomArrayIndex: getRandomArrayIndex(indexArray)
+            };
+        }
         data = [
             {
                 avatar_url: teamJson[this.state.randomArrayIndex[0]].avatar_url,
@@ -67,22 +72,28 @@ export class Field extends React.Component<Props, State> {
     }
 
     render() {
-        //  console.log(`Data is here -> ${this.data}`);
-        return (
-            <div>
-                {
-                    data.map((racer: Racer, key: number) => {
-                        return(
-                            <JockRacer
-                                avatar={racer.avatar_url}
-                                login={racer.login}
-                                color={racer.color}
-                                key={racer.login}
-                            />
-                        );
-                    })
-                }
-            </div>
-        );
+        if (this.props.startGame) {
+            return (
+                <div>
+                    {
+                        data.map((racer: Racer, key: number) => {
+                            return (
+                                <JockRacer
+                                    avatar={racer.avatar_url}
+                                    login={racer.login}
+                                    color={racer.color}
+                                    key={racer.login}
+                                />
+                            );
+                        })
+                    }
+                </div>
+            );
+        } else {
+            return (
+                <h1>Start the race by clicking the start race button</h1>
+            );
+        }
+
     }
 }

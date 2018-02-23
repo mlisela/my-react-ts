@@ -33,16 +33,12 @@ export class JockRacer extends React.Component<Props, State> {
             this.setState({ progress: this.state.progress + 0.9 });
         if (this.state.progress > 99 && this.state.count < 1) {
             this.setState({ count: this.state.count + 1 });
-            for (let i = 0; i < 1; i++) {
-                alert('The winner is :' + this.props.login);
-            }
+            alert(this.props.login + '...has finished the race!!!');
         }
 
     }
     componentDidMount() {
-        // this.setState = setInterval(this.timer, this.state.interval);
         setInterval(this.timer, this.state.interval);
-
     }
 
     render() {

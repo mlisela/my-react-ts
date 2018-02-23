@@ -11,9 +11,9 @@ export class RaceButtons extends React.Component<Props> {
     }
     render() {
         return (
-            <div >
-                <button style={{ backgroundColor: 'green' }} onClick={this.props.startRace} >Start race</button>
-                <button style={{ backgroundColor: 'red' }} onClick={this.props.resetRace} >Reset race</button>
+            <div>
+                <button className="buttonStart" onClick={this.props.startRace} >Start race</button>
+                <button className="buttonReset" onClick={this.props.resetRace} >Reset race</button>
             </div>
         );
     }
