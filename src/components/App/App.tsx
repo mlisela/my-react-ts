@@ -26,7 +26,7 @@ export class App extends React.Component<Props, State> {
 	}
 	resetRaceHandler() {
 		this.setState({ startGame: false });
-		window.location.reload();
+		window.location.reload(); 
 	}
 	render() {
 		return (
